@@ -1,6 +1,6 @@
 import logging
-# import torch
-# from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler
+import torch
+from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler
 # from celery import Celery
 # import src.celery_settings
 
@@ -50,7 +50,7 @@ class Managers:
         # stable diffusion
         _scheduler = EulerDiscreteScheduler.from_pretrained(MODEL_ID, subfolder="scheduler")
         self.stable_pipeline = StableDiffusionPipeline.from_pretrained(
-            model_id, 
+            MODEL_ID,
             scheduler=_scheduler, 
             torch_dtype=torch.float16
         )
