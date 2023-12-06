@@ -1,8 +1,8 @@
 import logging
-import torch
-from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler
-from celery import Celery
-import src.celery_settings
+# import torch
+# from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler
+# from celery import Celery
+# import src.celery_settings
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -42,10 +42,10 @@ class Managers:
         # logger
         self._logger = logging.getLogger()
 
-        # celery
-        self._celery = Celery()
-        celery_app = Celery('tasks')
-        celery_app.config_from_object(src.celery_settings)
+        # # celery
+        # self._celery = Celery()
+        # celery_app = Celery('tasks')
+        # celery_app.config_from_object(src.celery_settings)
 
         # stable diffusion
         _scheduler = EulerDiscreteScheduler.from_pretrained(MODEL_ID, subfolder="scheduler")
